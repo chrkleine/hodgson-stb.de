@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<style type="text/css">
+@font-face
+{
+	font-family: 'DIN';
+	src: url('/font/heading.otf') format('opentype'); 
+}
+
+@font-face
+{
+	font-family: 'normtext';
+	src: url('/font/normtext.ttf') format('truetype'); 
+}
+
+
+.main
+{
+	font-family:DIN;
+	border-collapse:collapse;
+	border-spacing:0;
+	border-color:#FFFFFF;
+	border:1px;
+}
+
+.month
+{
+	font-family:DIN;
+	font-size:20px;
+	font-weight:normal;
+	text-align:left;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#FFFFFF;
+	color:#FFFFFF;
+	background-color:#24696C;
+}
+
+.img
+{
+	font-family:DIN;
+	font-size:20px;
+	font-weight:normal;
+	text-align:left;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#FFFFFF;
+	color:#333333;
+	background-color:#FFFFFF;
+	width:150px;
+}
+
+.title
+{
+	font-family:DIN;
+	font-size:20px;
+	font-weight:normal;
+	text-align:left;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#FFFFFF;
+	color:#333333;
+	background-color:#FFFFFF;
+}
+
+.content
+{
+	font-family:DIN;
+	font-size:14px;
+	font-weight:normal;
+	text-align:left;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#FFFFFF;
+	color:#333333;
+	background-color:#FFFFFF;
+}
+
+</style>
+
+<script>
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","steuernews_fuer_mandanten.xml",false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML; 
+
+document.write("						<table class='main'>");
+var x=xmlDoc.getElementsByTagName("issue");
+for (i=0;i<x.length;i++)
+{ 
+	document.write("							<tr>");
+	document.write("								<th class='month' colspan='2'>");
+	document.write(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
+	document.write("								</th>");
+	document.write("							<tr>");
+	document.write("								<td class='title'>");
+	document.write(x[i].getElementsByTagName("title")[1].childNodes[0].nodeValue);
+	document.write("								</td>");
+	//document.write("							</tr>");
+	//document.write("							<tr>");
+	document.write("								<td class='img'>");
+	document.write("									<img src=\"");
+	document.write(x[i].getElementsByTagName("img")[0].childNodes[0].nodeValue);
+	document.write("									\" name=\"\" />");
+	document.write("								</td>");
+	document.write("							</tr>");
+	document.write("							<tr>");
+	document.write("								<td class='content' colspan='2'>");
+	document.write(x[i].getElementsByTagName("content")[0].childNodes[0].nodeValue);
+	document.write("								</td>");
+	document.write("							</tr>");
+}
+document.write("						</table>");
+</script>
+
+</body>
+</html>
