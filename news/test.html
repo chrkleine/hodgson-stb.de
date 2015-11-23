@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+		
+		
+<script>
+var xmldata = null;
+    xmldata = new XMLHttpRequest();
+
+function xmlData() {
+
+    if (xmldata.readyState == 4) {
+
+        var inhalt = xmldata.responseXML;
+        var ifluss = inhalt.getElementsByTagName("entry").length;
+        var antwt1 = inhalt.getElementsByTagName("title")[0].firstChild.nodeValue;
+
+        document.getElementById("ausg-01").innerHTML = antwt1;
+
+        for (var i = 0; i < ifluss; i++){
+
+            var antwt2 = inhalt.getElementsByTagName("title")[i].childNodes[i].nodeValue;
+            var antwt3 = inhalt.getElementsByTagName("foreword")[i].childNodes[i].nodeValue;
+            var antwt4 = inhalt.getElementsByTagName("content")[i].childNodes[i].nodeValue;
+
+            document.getElementById("ausg-02").innerHTML += "<li>" + antwt2 +"</li>";
+            //document.getElementById("ausg-03").innerHTML += "" + antwt3 + "";
+            document.getElementById("ausg-04").innerHTML += "" + antwt4 + "";
+        }
+    }
+}
+
+window.onload = function() {
+
+    xmldata.open("GET", "./xml/2014_11.xml", true);
+    xmldata.onreadystatechange = xmlData;
+    xmldata.send(null);
+}			
+</script>
+		
+		
+	</head>
+<body>
+
+<LINK href="mhstyle.css" rel="stylesheet" type="text/css">
+
+<form>
+	<select onChange="location.href=this.options[this.selectedIndex].value">
+		<option value="http://news.hodgson-stb.de/index.html">Übersicht
+		<option value="http://news.hodgson-stb.de/2014_11.html" selected>2014 November
+		<option value="http://news.hodgson-stb.de/2014_10.html">2014 Oktober
+		<option value="http://news.hodgson-stb.de/2014_09.html">2014 September
+		<option value="http://news.hodgson-stb.de/2014_08.html">2014 August
+		<option value="http://news.hodgson-stb.de/2014_07.html">2014 Juli
+		<option value="http://news.hodgson-stb.de/2014_06.html">2014 Juni
+		<option value="http://news.hodgson-stb.de/2014_05.html">2014 Mai
+		<option value="http://news.hodgson-stb.de/2014_04.html">2014 April
+		<option value="http://news.hodgson-stb.de/2014_03.html">2014 März
+		<option value="http://news.hodgson-stb.de/2014_02.html">2014 Februar
+		<option value="http://news.hodgson-stb.de/2014_01.html">2014 Januar
+		<option value="http://news.hodgson-stb.de/2013_12.html">2013 Dezember
+	</select>
+</form>
+		
+<br>
+
+
+
+
+<div class="ausg"> 
+<h1>Verarbeitung von XML-Dateien</h1>
+<h2 id="ausg-01"></h2>
+<ul id="ausg-02"></ul>
+<ul id="ausg-03"></ul>
+<ul id="ausg-04"></ul>
+</div>
+
+
+
+
+<script>
+/*if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","./xml/2014_11.xml",false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML; 
+
+document.write("						<table class='main'>");
+var x=xmlDoc.getElementsByTagName("news");
+for (i=0;i<x.length;i++)
+{ 
+	document.write("							<tr>");
+	document.write("								<th class='month' colspan='2'>");
+	document.write(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
+	document.write("								</th>");
+	document.write("							<tr>");
+	document.write("								<td class='title'>");
+	document.write(x[i].getElementsByTagName("title")[1].childNodes[0].nodeValue);
+	document.write("								</td>");
+	//document.write("							</tr>");
+	//document.write("							<tr>");
+	document.write("								<td class='img'>");
+	document.write("									<img src=\"");
+	document.write(x[i].getElementsByTagName("img")[0].childNodes[0].nodeValue);
+	document.write("									\" name=\"\" />");
+	document.write("								</td>");
+	document.write("							</tr>");
+	document.write("							<tr>");
+	document.write("								<td class='content' colspan='2'>");
+	document.write(x[i].getElementsByTagName("content")[0].childNodes[0].nodeValue);
+	document.write("								</td>");
+	document.write("							</tr>");
+}
+document.write("						</table>");*/
+</script>
+
+</body>
+</html>

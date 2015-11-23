@@ -1,0 +1,107 @@
+@font-face
+{
+	font-family: 'DIN';
+	src: url('/font/heading.otf') format('opentype'); 
+}
+
+@font-face
+{
+	font-family: 'normtext';
+	src: url('/font/normtext.ttf') format('truetype'); 
+}
+
+
+.main
+{
+	font-family:DIN;
+	border-collapse:collapse;
+	border-spacing:0;
+	border-color:#FFFFFF;
+	border:none;
+}
+
+.month
+{
+	font-family:DIN;
+	font-size:20px;
+	font-weight:normal;
+	text-align:left;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#FFFFFF;
+	color:#FFFFFF;
+	background-color:#24696C;
+}
+
+.img
+{
+	font-family:DIN;
+	font-size:20px;
+	font-weight:normal;
+	text-align:left;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#FFFFFF;
+	color:#333333;
+	background-color:#FFFFFF;
+	width:150px;
+}
+
+.title
+{
+	font-family:DIN;
+	font-size:20px;
+	font-weight:normal;
+	text-align:left;
+	font-weight:normal;
+	padding:10px 5px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#FFFFFF;
+	color:#333333;
+	background-color:#FFFFFF;
+}
+
+.content
+{
+	font-family:DIN;
+	font-size:14px;
+	font-weight:normal;
+	text-align:left;
+	font-weight:normal;
+	padding:0px 5px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#FFFFFF;
+	color:#333333;
+	background-color:#FFFFFF;
+}
+
+.contentlast
+{
+	font-family:DIN;
+	font-size:14px;
+	font-weight:normal;
+	text-align:left;
+	font-weight:normal;
+	padding:0px 5px 10px;
+	border-style:solid;
+	border-width:0px;
+	overflow:hidden;
+	word-break:normal;
+	border-color:#FFFFFF;
+	color:#333333;
+	background-color:#FFFFFF;
+}

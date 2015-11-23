@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	</head>
+<body>
+
+<LINK href="mhstyle.css" rel="stylesheet" type="text/css">
+
+<form>
+	<select onChange="location.href=this.options[this.selectedIndex].value">
+		<option value="http://news.hodgson-stb.de/index.html">Übersicht (Kurzform)
+		<option value="http://news.hodgson-stb.de/2015_11.html">2015 November
+		<option value="http://news.hodgson-stb.de/2015_10.html">2015 Oktober
+		<option value="http://news.hodgson-stb.de/2015_09.html">2015 September
+		<option value="http://news.hodgson-stb.de/2015_08.html">2015 August
+		<option value="http://news.hodgson-stb.de/2015_07.html">2015 Juli
+		<option value="http://news.hodgson-stb.de/2015_06.html">2015 Juni
+		<option value="http://news.hodgson-stb.de/2015_05.html">2015 Mai
+		<option value="http://news.hodgson-stb.de/2015_04.html">2015 April
+		<option value="http://news.hodgson-stb.de/2015_03.html">2015 März
+		<option value="http://news.hodgson-stb.de/2015_02.html">2015 Februar
+		<option value="http://news.hodgson-stb.de/2015_01.html">2015 Januar
+		<option value="http://news.hodgson-stb.de/2014_12.html">2014 Dezember
+		<option value="http://news.hodgson-stb.de/2014_11.html">2014 November
+		<option value="http://news.hodgson-stb.de/2014_10.html">2014 Oktober
+		<option value="http://news.hodgson-stb.de/2014_09.html">2014 September
+		<option value="http://news.hodgson-stb.de/2014_08.html">2014 August
+		<option value="http://news.hodgson-stb.de/2014_07.html">2014 Juli
+		<option value="http://news.hodgson-stb.de/2014_06.html">2014 Juni
+		<option value="http://news.hodgson-stb.de/2014_05.html" selected>2014 Mai
+		<option value="http://news.hodgson-stb.de/2014_04.html">2014 April
+		<option value="http://news.hodgson-stb.de/2014_03.html">2014 März
+		<option value="http://news.hodgson-stb.de/2014_02.html">2014 Februar
+		<option value="http://news.hodgson-stb.de/2014_01.html">2014 Januar
+		<option value="http://news.hodgson-stb.de/2013_12.html">2013 Dezember
+	</select>
+</form>
+
+<br>
+
+<script>
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.open("GET","./xml/2014_05.xml",false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML; 
+
+document.write("						<table class='main'>");
+var x=xmlDoc.getElementsByTagName("issue");
+for (i=0;i<x.length;i++)
+{ 
+	document.write("							<tr>");
+	document.write("								<th class='month' colspan='2'>");
+	document.write(x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue);
+	document.write("								</th>");
+	document.write("							<tr>");
+	document.write("								<td class='title'>");
+	document.write(x[i].getElementsByTagName("title")[1].childNodes[0].nodeValue);
+	document.write("								</td>");
+	//document.write("							</tr>");
+	//document.write("							<tr>");
+	document.write("								<td class='img'>");
+	document.write("									<img src=\"");
+	document.write(x[i].getElementsByTagName("img")[0].childNodes[0].nodeValue);
+	document.write("									\" name=\"\" />");
+	document.write("								</td>");
+	document.write("							</tr>");
+	document.write("							<tr>");
+	document.write("								<td class='content' colspan='2'>");
+	document.write(x[i].getElementsByTagName("content")[0].childNodes[0].nodeValue);
+	document.write("								</td>");
+	document.write("							</tr>");
+}
+document.write("						</table>");
+</script>
+
+</body>
+</html>
